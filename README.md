@@ -1,4 +1,4 @@
-# Dent AI - Smart Dental Clinic Web App
+# Y2S2.WE.AI.01.02.G14_Smart_Clinic (Dent AI - Smart Dental Clinic Web App)
 
 Full-stack web app using React, Node.js, and MongoDB with role-based auth for:
 - Patient
