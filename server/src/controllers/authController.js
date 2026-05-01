@@ -474,9 +474,9 @@ export const getUsersByRole = async (req, res) => {
     const { user_id, role } = req.user;
     const { role: queryRole } = req.query;
 
-    // Verify admin access
-    if (role !== "admin") {
-      return res.status(403).json({ message: "Only admins can access this endpoint" });
+    // Verify admin or doctor access
+    if (role !== "admin" && role !== "doctor") {
+      return res.status(403).json({ message: "Only admins and doctors can access this endpoint" });
     }
 
     if (!queryRole) {
@@ -488,10 +488,7 @@ export const getUsersByRole = async (req, res) => {
       role: queryRole,
     }).select("-password");
 
-    return res.status(200).json({
-      success: true,
-      data: users,
-    });
+    return res.status(200).json(users);
   } catch (error) {
     console.error("Error fetching users:", error);
     return res.status(500).json({ message: "Failed to fetch users", error: error.message });

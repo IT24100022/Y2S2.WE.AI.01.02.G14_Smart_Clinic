@@ -3,6 +3,9 @@ import express from "express";
 import morgan from "morgan";
 import path from "path";
 import authRoutes from "./routes/authRoutes.js";
+import medicineRoutes from "./routes/medicineRoutes.js";
+import prescriptionRoutes from "./routes/prescriptionRoutes.js";
+import orderRoutes from "./routes/orderRoutes.js";
 import { verifyToken } from "./middleware/auth.js";
 
 const app = express();
@@ -21,7 +24,9 @@ app.get("/api/auth/test", verifyToken, (req, res) => {
 });
 
 app.use("/api/auth", authRoutes);
-
+app.use("/api/medicines", medicineRoutes);
+app.use("/api/prescriptions", prescriptionRoutes);
+app.use("/api/orders", orderRoutes);
 app.use((err, _req, res, _next) => {
   res.status(500).json({ message: "Unexpected server error", error: err.message });
 });
