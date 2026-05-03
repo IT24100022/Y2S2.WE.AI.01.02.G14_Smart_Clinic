@@ -25,6 +25,14 @@ const createRecord = async (req, res) => {
 
     const isInventory = record_type === 'inventory';
 
+    if (!record_type) {
+      return res.status(400).json({ message: 'Record type is required.' });
+    }
+
+    if (!doctor_id || doctor_id.length !== 6) {
+      return res.status(400).json({ message: 'Doctor ID must be exactly 6 characters.' });
+    }
+
     if (isInventory) {
       // Inventory specific validation
       if (!product_name || !supplier || !quantity || quantity <= 0) {
@@ -50,7 +58,7 @@ const createRecord = async (req, res) => {
         return res.status(400).json({ message: 'Patient records require patient_id, patient_name, and sex.' });
       }
 
-      const finalTitle = title || `${record_type.charAt(0).toUpperCase() + record_type.slice(1)} Entry`;
+      const finalTitle = title || (record_type ? `${record_type.charAt(0).toUpperCase() + record_type.slice(1)} Entry` : 'Medical Entry');
 
       const newPatientRecord = await MedicalRecord.create({
         patient_id,

@@ -58,11 +58,13 @@ const AddRecordForm = ({ role, onRecordAdded, currentPatientId }) => {
   };
 
   const validate = () => {
+    if (!formData.record_type) return 'Record Type is required';
     if (!isInventory) {
       if (formData.patient_id.length !== 6) return 'Patient ID must be exactly 6 characters';
       if (formData.patient_contact.length !== 10 || !/^\d+$/.test(formData.patient_contact)) 
         return 'Contact number must be exactly 10 digits';
       if (!formData.patient_name) return 'Patient Name is required';
+      if (!formData.sex) return 'Sex is required';
     } else {
       if (formData.serial_number && formData.serial_number.length !== 6) 
         return 'Serial Number must be exactly 6 characters';
@@ -71,6 +73,7 @@ const AddRecordForm = ({ role, onRecordAdded, currentPatientId }) => {
     }
 
     if (formData.doctor_id.length !== 6) return 'Doctor ID must be exactly 6 characters';
+    if (!formData.description) return 'Description is required';
     if (formData.description.length > 100) return 'Description must not exceed 100 characters';
 
     return null;
@@ -102,7 +105,8 @@ const AddRecordForm = ({ role, onRecordAdded, currentPatientId }) => {
       
       if (onRecordAdded) onRecordAdded(addedRecord);
     } catch (error) {
-      const errorMsg = error.response?.data?.message || 'Failed to create record';
+      console.error('Create record error', error);
+      const errorMsg = error.response?.data?.message || error.message || 'Failed to create record';
       setStatus({ type: 'error', message: errorMsg });
     } finally {
       setLoading(false);
@@ -228,7 +232,7 @@ const AddRecordForm = ({ role, onRecordAdded, currentPatientId }) => {
                 </div>
                 <div className="form-group" style={{ flex: 0.8 }}>
                   <label>Sex *</label>
-                  <select name="sex" className="form-input" value={formData.sex} onChange={handleChange}>
+                  <select name="sex" className="form-input" value={formData.sex} onChange={handleChange} required>
                     <option value="" disabled>Select Sex</option>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
@@ -304,6 +308,7 @@ const AddRecordForm = ({ role, onRecordAdded, currentPatientId }) => {
                   className="form-input" 
                   value={formData.record_type} 
                   onChange={handleChange}
+                  required
                 >
                   <option value="" disabled>Select Record Type</option>
                   <option value="report">Report</option>
