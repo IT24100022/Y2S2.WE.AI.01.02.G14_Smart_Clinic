@@ -107,7 +107,7 @@ export default function DashboardScreen({ navigation }) {
         ) : (
           <>
             <TouchableOpacity style={[styles.btn, styles.btnEdit]} onPress={() => handleEdit(item)}>
-              <Text style={styles.btnText}>Edit</Text>
+              <Text style={styles.btnTextSecondary}>Edit</Text>
             </TouchableOpacity>
             <TouchableOpacity style={[styles.btn, styles.btnPay]} onPress={() => handlePay(item)}>
               <Text style={styles.btnText}>Pay</Text>
@@ -177,7 +177,8 @@ const styles = StyleSheet.create({
   btn: { flex: 1, padding: 8, borderRadius: 6, alignItems: 'center', marginHorizontal: 4 },
   btnEdit: { backgroundColor: theme.colors.surfaceVariant },
   btnPay: { backgroundColor: theme.colors.success },
-  btnCancel: { backgroundColor: theme.colors.errorContainer },
-  btnText: { fontWeight: 'bold', color: theme.colors.textSecondary },
+  btnCancel: { backgroundColor: theme.colors.error },
+  btnText: { fontWeight: 'bold', color: '#ffffff' },
+  btnTextSecondary: { fontWeight: 'bold', color: theme.colors.textSecondary },
   emptyText: { textAlign: 'center', color: theme.colors.textSecondary, marginTop: 20 }
 });

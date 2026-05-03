@@ -24,7 +24,7 @@ export default function Sidebar() {
     <aside className="sidebar">
       <div className="sidebar-brand">
         <span className="label">Clinical Precision</span>
-        <h2>Dent AI Portal</h2>
+        <h2>Smart Clinic</h2>
       </div>
       <nav className="sidebar-nav">
         {mainNav.map(function(item, i) {

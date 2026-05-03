@@ -11,7 +11,7 @@ export default function Topnav() {
   return (
     <nav className="topnav">
       <div className="topnav-left">
-        <span className="topnav-brand">Dent AI</span>
+        <span className="topnav-brand">Smart Clinic</span>
         <div className="topnav-links">
           {topLinks.map(function(link, i) {
             return (

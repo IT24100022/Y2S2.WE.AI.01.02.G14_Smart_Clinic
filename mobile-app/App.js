@@ -24,8 +24,8 @@ export default function App() {
         initialRouteName="Dashboard"
         drawerContent={(props) => <Sidebar {...props} />}
         screenOptions={{
-          headerStyle: { backgroundColor: theme.colors.background, elevation: 0, shadowOpacity: 0 },
-          headerTintColor: theme.colors.text,
+          headerStyle: { backgroundColor: theme.colors.primary, elevation: 0, shadowOpacity: 0 },
+          headerTintColor: '#ffffff',
           headerTitleStyle: { fontWeight: '800' },
           drawerActiveBackgroundColor: '#ecfeff',
           drawerActiveTintColor: theme.colors.primary,

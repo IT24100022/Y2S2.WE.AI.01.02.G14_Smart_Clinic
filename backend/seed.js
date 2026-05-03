@@ -1,7 +1,7 @@
 require('dotenv').config()
 const mongoose = require('mongoose')
 // ── Connect ───────────────────────────────────────────────────────────────────
-mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/dentai_medication')
+mongoose.connect(process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/smart_clinic_db')
   .then(function() { console.log('Connected to MongoDB — seeding sample data...') })
   .catch(function(err) { console.error('Connection error:', err.message); process.exit(1) })
 // ── Schemas (inline for simplicity) ──────────────────────────────────────────

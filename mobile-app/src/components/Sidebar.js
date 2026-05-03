@@ -8,8 +8,8 @@ export default function Sidebar(props) {
     <View style={styles.container}>
       <DrawerContentScrollView {...props} contentContainerStyle={styles.scrollContent}>
         <View style={styles.brand}>
-          <Text style={styles.label}>SMART CLINIC</Text>
-          <Text style={styles.title}>DentAI</Text>
+          <Text style={styles.label}>CLINICAL PORTAL</Text>
+          <Text style={styles.title}>Smart Clinic</Text>
         </View>
         <View style={styles.divider} />
 

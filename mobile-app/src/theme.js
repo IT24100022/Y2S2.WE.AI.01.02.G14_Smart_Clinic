@@ -1,17 +1,17 @@
 export const theme = {
   colors: {
-    primary: '#00616c',
-    primaryContainer: '#007c89',
-    background: '#f8fafb',
+    primary: '#0ea5e9', // Sky blue from screenshot
+    primaryContainer: '#0ea5e9',
+    background: '#f1f5f9', // Light grey-blue background
     surface: '#ffffff',
-    surfaceVariant: '#e1e3e4',
-    text: '#191c1d',
-    textSecondary: '#3e494a',
-    error: '#ba1a1a',
-    errorContainer: '#ffdad6',
-    outline: '#bdc8cb',
-    success: '#10b981', // green for pay
-    secondaryFixed: '#baeaff',
+    surfaceVariant: '#f8fafc',
+    text: '#0f172a',
+    textSecondary: '#64748b',
+    error: '#ef4444',
+    errorContainer: '#fee2e2',
+    outline: '#e2e8f0',
+    success: '#10b981', // Emerald green for pay
+    secondaryFixed: '#e0f2fe',
   },
   fonts: {
     headline: 'sans-serif', // In RN, you'd load custom fonts, we'll use system for now but styled properly
