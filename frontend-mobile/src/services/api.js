@@ -1,8 +1,8 @@
 import axios from 'axios';
 import * as SecureStore from 'expo-secure-store';
 
-// Use 10.0.2.2 for Android Emulator, localhost for iOS simulator
-const API_URL = 'http://10.0.2.2:5000/api'; 
+// LAN URL for Expo Go on a physical phone.
+const API_URL = 'http://192.168.54.26:5001/api';
 
 const api = axios.create({
   baseURL: API_URL,

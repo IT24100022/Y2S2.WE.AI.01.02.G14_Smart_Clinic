@@ -7,6 +7,8 @@ import { AuthContext } from '../context/AuthContext';
 import LoginScreen from '../screens/LoginScreen';
 import RegisterScreen from '../screens/RegisterScreen';
 import HomeScreen from '../screens/HomeScreen';
+import FeedbackFormScreen from '../screens/FeedbackFormScreen';
+import FeedbackListScreen from '../screens/FeedbackListScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -25,7 +27,11 @@ export default function AppNavigator() {
     <Stack.Navigator>
       {user ? (
         // User is signed in
-        <Stack.Screen name="Home" component={HomeScreen} options={{ title: 'Dashboard' }} />
+        <>
+          <Stack.Screen name="Home" component={HomeScreen} options={{ title: 'Dashboard' }} />
+          <Stack.Screen name="FeedbackList" component={FeedbackListScreen} options={{ title: 'Feedback History' }} />
+          <Stack.Screen name="FeedbackForm" component={FeedbackFormScreen} options={{ title: 'Submit Feedback' }} />
+        </>
       ) : (
         // No token found, user isn't signed in
         <>

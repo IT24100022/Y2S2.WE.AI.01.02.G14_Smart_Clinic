@@ -6,6 +6,7 @@ import authRoutes from "./routes/authRoutes.js";
 import medicineRoutes from "./routes/medicineRoutes.js";
 import prescriptionRoutes from "./routes/prescriptionRoutes.js";
 import orderRoutes from "./routes/orderRoutes.js";
+import feedbackRoutes from "./routes/feedbackRoutes.js";
 import { verifyToken } from "./middleware/auth.js";
 
 const app = express();
@@ -27,6 +28,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/medicines", medicineRoutes);
 app.use("/api/prescriptions", prescriptionRoutes);
 app.use("/api/orders", orderRoutes);
+app.use("/api/feedback", verifyToken, feedbackRoutes);
 app.use((err, _req, res, _next) => {
   res.status(500).json({ message: "Unexpected server error", error: err.message });
 });
